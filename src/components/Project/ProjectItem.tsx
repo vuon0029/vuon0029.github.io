@@ -4,8 +4,10 @@ import Text from "../Text";
 import { ThemeColor } from "../../consts/ThemeValues";
 import TechChip from "../TechChip/TechChip";
 
-const Container = styled.div`
+const Container = styled.a`
   display: flex;
+
+  text-decoration: none;
 
   flex-direction: row;
 
@@ -59,12 +61,13 @@ const ProjectItem: React.FC<{
   data: {
     name: string;
     imgSrc: string;
+    href: string;
     techstack: string[];
     renderDescription: () => ReactNode;
   };
-}> = ({ data: { renderDescription, techstack, name, imgSrc } }) => {
+}> = ({ data: { renderDescription, techstack, name, imgSrc, href } }) => {
   return (
-    <Container>
+    <Container target={"_blank"} href={href}>
       <ImageContainer>
         <ProjectImage src={imgSrc} alt={name} />
       </ImageContainer>
