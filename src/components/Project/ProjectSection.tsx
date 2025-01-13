@@ -6,17 +6,20 @@ import smartTenant from "../../assets/smart-tenant.jpg";
 import poptikr from "../../assets/poptikr.png";
 import ProjectItem from "./ProjectItem";
 import Text from "../Text";
+import React from "react";
 
-const ProjectContainer = styled.div`
+const ProjectContainer = styled.section`
   display: flex;
   flex-direction: column;
 
   gap: 10px;
 `;
 
-const ProjectSection = () => {
+const ProjectSection: React.FC<{
+  projectsRef: React.MutableRefObject<HTMLDivElement | null>;
+}> = ({ projectsRef }) => {
   return (
-    <ProjectContainer>
+    <ProjectContainer id="projects" ref={projectsRef}>
       <ProjectItem
         data={{
           name: "Treehouse Community Website",

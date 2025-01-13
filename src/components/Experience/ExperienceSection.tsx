@@ -2,8 +2,9 @@ import styled from "styled-components";
 import ExperienceItem from "./ExperienceItem";
 import Text from "../Text";
 import { ThemeColor, ThemeSize } from "../../consts/ThemeValues";
+import React from "react";
 
-const ExperienceContainer = styled.div`
+const ExperienceContainer = styled.section`
   display: flex;
   flex-direction: column;
 
@@ -15,9 +16,11 @@ const BoldSpan = styled.span`
   color: ${ThemeColor.primary};
 `;
 
-const ExperienceSection = () => {
+const ExperienceSection: React.FC<{
+  experienceRef: React.MutableRefObject<HTMLDivElement | null>;
+}> = ({ experienceRef }) => {
   return (
-    <ExperienceContainer>
+    <ExperienceContainer id="experience" ref={experienceRef}>
       <ExperienceItem
         data={{
           company: "Treehouse",

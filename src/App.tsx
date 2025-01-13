@@ -1,13 +1,15 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { ThemeColor } from "./consts/ThemeValues";
 import Text from "./components/Text";
-import { FiGithub, FiLinkedin } from "react-icons/fi";
+
 import React from "react";
 
 import SplineBackground from "./components/SplineBackground/SplineBackground";
 import ExperienceSection from "./components/Experience/ExperienceSection";
 import ProjectSection from "./components/Project/ProjectSection";
 import SummarySection from "./components/Summary/SummarySection";
+import Footer from "./components/Footer/Footer";
+import Navigation from "./components/Nav/Navigation";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -57,7 +59,7 @@ const ScrollableContainer = styled.div`
 
   flex-direction: column;
 
-  padding-top: 150px;
+  padding-top: 300px;
   padding-left: 35px;
   padding-bottom: 150px;
   padding-right: 100px;
@@ -81,32 +83,65 @@ const HeaderSection = styled.div`
   gap: 10px;
 `;
 
-const NavigatorSection = styled.div`
-  display: flex;
-
-  flex-direction: column;
-
-  margin-top: 70px;
-
-  gap: 5px;
-`;
-
-const FooterContact = styled.div`
-  display: flex;
-
-  flex-direction: row;
-
-  margin-bottom: 50px;
-
-  margin-top: auto;
-
-  gap: 20px;
-`;
-
 function App() {
-  const [currentSection] = React.useState<"about" | "experience" | "projects">(
-    "about"
-  );
+  const [activeSection, setActiveSection] = React.useState<string>("about");
+
+  // Refs for each section
+  const aboutRef = React.useRef<HTMLDivElement | null>(null);
+  const experienceRef = React.useRef<HTMLDivElement | null>(null);
+  const projectsRef = React.useRef<HTMLDivElement | null>(null);
+  // Scroll to a section when a button is clicked
+  const scrollToSection = (
+    ref: React.RefObject<HTMLDivElement>,
+    id: string
+  ) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({
+        behavior: "smooth",
+        block: id === "projects" ? "start" : "center",
+      }); // Smooth scrolling
+      setActiveSection(id); // Update active section
+      history.pushState(null, "", `#${id}`); // Update URL hash
+    }
+  };
+
+  React.useEffect(() => {
+    // IntersectionObserver to detect active section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id); // Update active section
+          }
+        });
+      },
+      { threshold: 0.6 } // Trigger when 60% of the section is visible
+    );
+
+    // Observe each section
+    if (aboutRef.current) observer.observe(aboutRef.current);
+    if (experienceRef.current) observer.observe(experienceRef.current);
+    if (projectsRef.current) observer.observe(projectsRef.current);
+
+    return () => observer.disconnect(); // Cleanup observer on unmount
+  }, []);
+
+  React.useEffect(() => {
+    // Scroll to section on initial load if there's a hash in the URL
+    const hash = window.location.hash.replace("#", ""); // Remove the "#" from the hash
+    if (hash === "about" && aboutRef.current)
+      aboutRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (hash === "experience" && experienceRef.current)
+      experienceRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    if (hash === "projects" && projectsRef.current)
+      projectsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  }, []);
 
   return (
     <GlobalContainer>
@@ -122,54 +157,20 @@ function App() {
               <Text tag={"header"}>Front End Developer</Text>
             </div>
           </HeaderSection>
-          <NavigatorSection>
-            <Text
-              style={{ fontWeight: currentSection === "about" ? 700 : 300 }}
-              color={
-                currentSection === "about"
-                  ? ThemeColor.primary
-                  : ThemeColor.paragraph
-              }
-              bold
-              tag={"header"}
-            >
-              About
-            </Text>
-            <Text
-              style={{
-                fontWeight: currentSection === "experience" ? 700 : 300,
-              }}
-              color={
-                currentSection === "experience"
-                  ? ThemeColor.primary
-                  : ThemeColor.paragraph
-              }
-              tag={"header"}
-            >
-              Experience
-            </Text>
-            <Text
-              style={{ fontWeight: currentSection === "projects" ? 700 : 300 }}
-              color={
-                currentSection === "projects"
-                  ? ThemeColor.primary
-                  : ThemeColor.paragraph
-              }
-              tag={"header"}
-            >
-              Projects
-            </Text>
-          </NavigatorSection>
-          <FooterContact>
-            <FiGithub color={ThemeColor.primary} size={40} />
-            <FiLinkedin color={ThemeColor.primary} size={40} />
-          </FooterContact>
+          <Navigation
+            aboutRef={aboutRef}
+            experienceRef={experienceRef}
+            projectsRef={projectsRef}
+            activeSection={activeSection}
+            scrollToSection={scrollToSection}
+          />
+          <Footer />
         </StaticContainer>
 
         <ScrollableContainer>
-          <SummarySection />
-          <ExperienceSection />
-          <ProjectSection />
+          <SummarySection aboutRef={aboutRef} />
+          <ExperienceSection experienceRef={experienceRef} />
+          <ProjectSection projectsRef={projectsRef} />
         </ScrollableContainer>
       </AppContainer>
     </GlobalContainer>

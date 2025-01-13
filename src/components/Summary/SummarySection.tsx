@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Text from "../Text";
 import { ThemeColor } from "../../consts/ThemeValues";
+import React from "react";
 
 const SummaryContainer = styled.div`
   display: flex;
@@ -17,9 +18,11 @@ const BoldAnchor = styled.a`
   text-decoration: none;
 `;
 
-const SummarySection = () => {
+const SummarySection: React.FC<{
+  aboutRef: React.MutableRefObject<HTMLDivElement | null>;
+}> = ({ aboutRef }) => {
   return (
-    <SummaryContainer>
+    <SummaryContainer id="about" ref={aboutRef}>
       <Text style={{ fontWeight: 300 }} tag={"header"}>
         I’m a software developer with a passion for transforming beautifully
         crafted designs into interactive, intuitive, and responsive user
