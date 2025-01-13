@@ -8,19 +8,19 @@ export const ThemeColor = {
 
 export const ThemeSize = {
   banner: {
-    fontSize: 64,
+    fontSize: 40,
     fontWeight: 700,
   },
   header: {
-    fontSize: 20,
-    fontWeight: 400,
-  },
-  body: {
     fontSize: 18,
     fontWeight: 400,
   },
-  caption: {
+  body: {
     fontSize: 16,
+    fontWeight: 400,
+  },
+  caption: {
+    fontSize: 14,
     fontWeight: 400,
   },
 };

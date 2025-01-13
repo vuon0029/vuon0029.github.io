@@ -10,6 +10,7 @@ import ProjectSection from "./components/Project/ProjectSection";
 import SummarySection from "./components/Summary/SummarySection";
 import Footer from "./components/Footer/Footer";
 import Navigation from "./components/Nav/Navigation";
+import StaticMobileContainer from "./components/StaticMobile/StaticMobileContainer";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,9 +34,14 @@ const AppContainer = styled.div`
   gap: 20px;
 
   justify-content: center;
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-const StaticContainer = styled.div`
+const StaticWebContainer = styled.div`
   display: flex;
 
   flex-direction: column;
@@ -52,6 +58,11 @@ const StaticContainer = styled.div`
   height: 100vh;
 
   z-index: 1;
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ScrollableContainer = styled.div`
@@ -70,9 +81,26 @@ const ScrollableContainer = styled.div`
   gap: 300px;
 
   overflow-y: auto; /* Allow vertical scrolling */
+
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+  /* Hide scroll bar for Webkit browsers (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
   height: 100vh; /* Full height */
 
   z-index: 1;
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-width: 100%;
+    padding: 0px;
+
+    gap: 50px;
+  }
 `;
 
 const HeaderSection = styled.div`
@@ -149,7 +177,7 @@ function App() {
       <SplineBackground />
 
       <AppContainer>
-        <StaticContainer>
+        <StaticWebContainer>
           <HeaderSection>
             <Text tag={"banner"}>Kiet Vuong</Text>
             <div>
@@ -165,9 +193,10 @@ function App() {
             scrollToSection={scrollToSection}
           />
           <Footer />
-        </StaticContainer>
+        </StaticWebContainer>
 
         <ScrollableContainer>
+          <StaticMobileContainer />
           <SummarySection aboutRef={aboutRef} />
           <ExperienceSection experienceRef={experienceRef} />
           <ProjectSection projectsRef={projectsRef} />

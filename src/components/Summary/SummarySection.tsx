@@ -8,8 +8,24 @@ const SummaryContainer = styled.div`
   flex-direction: column;
 
   padding-left: 25px;
+  padding-right: 25px;
 
   gap: 20px;
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const MobileText = styled.h2`
+  display: none; /* Hide by default */
+
+  color: ${ThemeColor.primary};
+
+  @media (max-width: 768px) {
+    display: block; /* Show on screens 768px or smaller */
+  }
 `;
 
 const BoldAnchor = styled.a`
@@ -23,6 +39,7 @@ const SummarySection: React.FC<{
 }> = ({ aboutRef }) => {
   return (
     <SummaryContainer id="about" ref={aboutRef}>
+      <MobileText>About</MobileText>
       <Text style={{ fontWeight: 300 }} tag={"header"}>
         I’m a software developer with a passion for transforming beautifully
         crafted designs into interactive, intuitive, and responsive user

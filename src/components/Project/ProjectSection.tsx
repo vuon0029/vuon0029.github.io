@@ -7,12 +7,29 @@ import poptikr from "../../assets/poptikr.png";
 import ProjectItem from "./ProjectItem";
 import Text from "../Text";
 import React from "react";
+import { ThemeColor } from "../../consts/ThemeValues";
 
 const ProjectContainer = styled.section`
   display: flex;
   flex-direction: column;
 
   gap: 10px;
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    padding-bottom: 100px;
+  }
+`;
+
+const MobileText = styled.h2`
+  display: none; /* Hide by default */
+  padding-left: 25px;
+  padding-right: 25px;
+  color: ${ThemeColor.primary};
+
+  @media (max-width: 768px) {
+    display: block; /* Show on screens 768px or smaller */
+  }
 `;
 
 const ProjectSection: React.FC<{
@@ -20,6 +37,7 @@ const ProjectSection: React.FC<{
 }> = ({ projectsRef }) => {
   return (
     <ProjectContainer id="projects" ref={projectsRef}>
+      <MobileText>Projects</MobileText>
       <ProjectItem
         data={{
           name: "Treehouse Community Website",

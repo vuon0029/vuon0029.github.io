@@ -46,7 +46,7 @@ const Navigation: React.FC<{
   projectsRef,
 }) => {
   return (
-    <NavigatorSection>
+    <NavigatorSection id="nav">
       <button
         className={activeSection === "about" ? "active" : ""}
         onClick={() => scrollToSection(aboutRef, "about")}

@@ -26,6 +26,11 @@ const Container = styled.a`
 
     box-shadow: 0px 4px 5px rgba(157, 166, 255, 0.3); /* Add shadow on hover */
   }
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ChipContainer = styled.div`
@@ -42,19 +47,40 @@ const ChipContainer = styled.div`
   gap: 10px;
 `;
 
-const ImageContainer = styled.div``;
+const ImageContainer = styled.div`
+  flex: 1;
+  max-width: 30%;
 
-const TextContent = styled.div``;
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+
+const TextContent = styled.div`
+  flex: 1;
+  max-width: 70%;
+
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
 
 const ProjectImage = styled.img`
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: auto;
 
   object-fit: contain;
 
   border-radius: 10px;
 
-  background-color: black;
+  /* Mobile style (max-width: 768px) */
+  @media (max-width: 768px) {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 const ProjectItem: React.FC<{

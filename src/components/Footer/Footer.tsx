@@ -20,7 +20,7 @@ const StyledAnchor = styled.a`
 
 function Footer() {
   return (
-    <FooterContact>
+    <FooterContact id="footer">
       <StyledAnchor target="_blank" href="https://github.com/vuon0029">
         <FiGithub color={ThemeColor.primary} size={40} />
       </StyledAnchor>
