@@ -48,7 +48,12 @@ const ExperienceSection: React.FC<{
             "Styled Components",
           ],
           renderDescription: () => (
-            <Text tag={"body"}>
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
               Contributed to building a maternal care platform designed to
               foster a connected community for families, providers, and
               practices. Collaborated with a cross-functional team to design and
@@ -73,7 +78,12 @@ const ExperienceSection: React.FC<{
             "Styled Components",
           ],
           renderDescription: () => (
-            <Text tag={"body"}>
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
               Led the development of <BoldSpan>Smart Tenant</BoldSpan>, a mobile
               app connecting tenants with their local community. Played a key
               role in developing <BoldSpan>POPTikR</BoldSpan>, a mobile app that

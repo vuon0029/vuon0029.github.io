@@ -181,8 +181,22 @@ function App() {
           <HeaderSection>
             <Text tag={"banner"}>Kiet Vuong</Text>
             <div>
-              <Text tag={"header"}>Mobile Application Developer</Text>
-              <Text tag={"header"}>Front End Developer</Text>
+              <Text
+                style={{
+                  fontWeight: 300,
+                }}
+                tag={"header"}
+              >
+                Mobile Application Developer
+              </Text>
+              <Text
+                style={{
+                  fontWeight: 300,
+                }}
+                tag={"header"}
+              >
+                Front End Developer
+              </Text>
             </div>
           </HeaderSection>
           <Navigation

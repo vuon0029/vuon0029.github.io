@@ -16,7 +16,7 @@ const NavigatorSection = styled.div`
     background: none;
     border: none;
     color: ${ThemeColor.paragraph};
-    font-weight: 300;
+    font-weight: 200;
     font-size: ${ThemeSize.header.fontSize}px;
     text-decoration: none;
     cursor: pointer;

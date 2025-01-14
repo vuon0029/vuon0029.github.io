@@ -14,9 +14,7 @@ const FooterContact = styled.div`
   gap: 20px;
 `;
 
-const StyledAnchor = styled.a`
-  text-decoration: none;
-`;
+const StyledAnchor = styled.a``;
 
 function Footer() {
   return (

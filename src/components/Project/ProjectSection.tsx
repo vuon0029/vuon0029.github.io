@@ -53,7 +53,12 @@ const ProjectSection: React.FC<{
             "Styled Components",
           ],
           renderDescription: () => (
-            <Text tag={"body"}>
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
               A platform designed to support maternal and family care by
               connecting families, healthcare providers, and practices in a
               unified digital space.
@@ -68,7 +73,12 @@ const ProjectSection: React.FC<{
           href: "https://ottawagrassrootsfestival.com/algonquin-college-mobile-app-team/",
           techstack: ["JavaScript", "React Native", "Expo", "Google Firebase"],
           renderDescription: () => (
-            <Text tag={"body"}>
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
               An app created to enhance event discovery and artist engagement
               for the Ottawa Grassroots Festival with accessibility in mind.
             </Text>
@@ -89,7 +99,12 @@ const ProjectSection: React.FC<{
             "Styled Components",
           ],
           renderDescription: () => (
-            <Text tag={"body"}>
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
               An app developed to connect tenants with their local communities,
               fostering better communication and engagement. Includes features
               such as real-time messaging and a user-friendly interface to help
@@ -112,7 +127,12 @@ const ProjectSection: React.FC<{
             "Styled Components",
           ],
           renderDescription: () => (
-            <Text tag={"body"}>
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
               An app designed to help users discover local deals on goods and
               services, promoting community-based shopping and exploration.
               Focused on creating an engaging user experience by integrating

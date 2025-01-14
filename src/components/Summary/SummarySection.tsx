@@ -51,7 +51,6 @@ const Content = styled.div`
 const BoldAnchor = styled.a`
   font-weight: 700;
   color: ${ThemeColor.primary};
-  text-decoration: none;
 `;
 
 const SummarySection: React.FC<{

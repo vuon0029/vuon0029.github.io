@@ -52,7 +52,7 @@ const ExperienceItem: React.FC<{
       <Text
         style={{
           color: ThemeColor.primary,
-          fontWeight: 400,
+          fontWeight: 700,
         }}
         tag="header"
       >
