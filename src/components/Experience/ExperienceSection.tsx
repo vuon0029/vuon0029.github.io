@@ -92,7 +92,6 @@ const ExperienceSection: React.FC<{
           fontWeight: 400,
           paddingLeft: 25,
           marginTop: 20,
-          textDecoration: "none",
           fontSize: ThemeSize.header.fontSize,
         }}
         target="_blank"

@@ -19,6 +19,9 @@ const SummaryContainer = styled.div`
 const MobileText = styled.h2`
   display: none; /* Hide by default */
 
+  margin-left: 15px;
+  margin-right: 15px;
+
   color: ${ThemeColor.primary};
 
   @media (max-width: 768px) {
