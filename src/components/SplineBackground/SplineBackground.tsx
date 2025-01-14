@@ -22,8 +22,8 @@ export default function App() {
         const { clientX, clientY } = event;
 
         // Convert screen coordinates to world coordinates
-        const worldX = (clientX / window.innerWidth) * 20 - 10; // Scale based on world bounds
-        const worldY = -((clientY / window.innerHeight) * 20 - 10); // Adjust scaling and invert Y
+        const worldX = (clientX / window.innerWidth) * 20 - 10;
+        const worldY = -((clientY / window.innerHeight) * 20 - 10);
 
         // Update the object's position
         orb.current.position.x = worldX * 120;
@@ -31,9 +31,35 @@ export default function App() {
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const mediaQuery = window.matchMedia("(max-width: 768px)"); // Define media query
+
+    const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        // Mobile view
+        window.removeEventListener("mousemove", handleMouseMove);
+        if (orb.current) {
+          orb.current.position.x = 120;
+          orb.current.position.y = 100;
+        }
+      } else {
+        // Desktop view
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+          window.removeEventListener("mousemove", handleMouseMove);
+        };
+      }
+    };
+
+    // Initial check
+    handleMediaChange(mediaQuery);
+
+    // Add media query listener
+    mediaQuery.addEventListener("change", handleMediaChange);
+
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      mediaQuery.removeEventListener("change", handleMediaChange);
     };
   }, []);
 
@@ -46,11 +72,9 @@ export default function App() {
 
           // Find the ORB object by name
           orb.current = spline.findObjectByName("ORB");
-          if (orb.current) {
-            console.log("ORB loaded:", orb.current);
-          } else {
-            console.error("ORB object not found");
-          }
+          // if (orb.current) {
+          //   console.log("ORB loaded:", orb.current);
+          // }
         }}
       />
     </SplineContainer>
