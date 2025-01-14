@@ -19,7 +19,7 @@ const Container = styled.a`
 
   background-color: ${ThemeColor.background};
 
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 
   &:hover {
     cursor: pointer;

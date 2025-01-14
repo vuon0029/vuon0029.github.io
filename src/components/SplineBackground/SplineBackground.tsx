@@ -28,6 +28,8 @@ export default function App() {
         // Update the object's position
         orb.current.position.x = worldX * 120;
         orb.current.position.y = worldY * 50;
+        orb.current.scale.x = 4.5;
+        orb.current.scale.y = 4.5;
       }
     };
 
@@ -40,6 +42,8 @@ export default function App() {
         if (orb.current) {
           orb.current.position.x = 120;
           orb.current.position.y = 100;
+          orb.current.scale.x = 7;
+          orb.current.scale.y = 7;
         }
       } else {
         // Desktop view
