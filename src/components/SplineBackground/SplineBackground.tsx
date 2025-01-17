@@ -72,13 +72,9 @@ export default function App() {
       <Spline
         scene="https://prod.spline.design/xRP79IS-pmI6WBNv/scene.splinecode"
         onLoad={(spline) => {
-          splineRef.current = spline; // Store the Spline instance
+          splineRef.current = spline;
 
-          // Find the ORB object by name
           orb.current = spline.findObjectByName("ORB");
-          // if (orb.current) {
-          //   console.log("ORB loaded:", orb.current);
-          // }
         }}
       />
     </SplineContainer>
