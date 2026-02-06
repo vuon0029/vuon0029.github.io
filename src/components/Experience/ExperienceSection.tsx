@@ -35,6 +35,41 @@ const ExperienceSection: React.FC<{
       <MobileText>Experience</MobileText>
       <ExperienceItem
         data={{
+          company: "Lambton College",
+          title: "Full Stack Developer",
+          timespan: "Feb 2025 - Current",
+          techstack: [
+            "TypeScript",
+            "JavaScript",
+            "ReactJS",
+            "React Native",
+            "Expo CLI",
+            "Google Firebase",
+            "Styled Components",
+            "PHP",
+            "MySQL",
+            "NodeJS",
+            "AI Integration",
+          ],
+          renderDescription: () => (
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
+              Improved the speed and reliability of two production learning
+              platforms: Automated a Moodle LMS training and enrolment workflows
+              with a custom NodeJS backend, cutting registration wait times from
+              weeks to same-day access; built an AI-integrated LMS with a React
+              Native mobile app and React admin dashboard to support scalable,
+              personalized upskilling.
+            </Text>
+          ),
+        }}
+      />
+      <ExperienceItem
+        data={{
           company: "Treehouse",
           title: "Front End Developer",
           timespan: "August 2022 - August 2024",
@@ -74,7 +109,7 @@ const ExperienceSection: React.FC<{
             "React Native",
             "Google Firebase",
             "Amazon Web Services",
-            "Expo",
+            "Expo CLI",
             "Styled Components",
           ],
           renderDescription: () => (
@@ -105,7 +140,7 @@ const ExperienceSection: React.FC<{
           fontSize: ThemeSize.header.fontSize,
         }}
         target="_blank"
-        href="/KietVuong_DeveloperResume.pdf"
+        href="/KietVuong_FullStackDeveloper.pdf"
       >
         Download Full Résumé
       </a>

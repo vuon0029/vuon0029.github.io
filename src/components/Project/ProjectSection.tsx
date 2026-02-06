@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import moodleLTC from "../../assets/moodle-ltc.png";
 import treehouse from "../../assets/treehouse.png";
 import ogf from "../../assets/ogf.png";
 import smartTenant from "../../assets/smart-tenant.jpg";
@@ -32,12 +33,47 @@ const MobileText = styled.h2`
   }
 `;
 
+const BoldAnchor = styled.a`
+  font-weight: 700;
+  color: ${ThemeColor.primary};
+`;
+
 const ProjectSection: React.FC<{
   projectsRef: React.MutableRefObject<HTMLDivElement | null>;
 }> = ({ projectsRef }) => {
   return (
     <ProjectContainer id="projects" ref={projectsRef}>
       <MobileText>Projects</MobileText>
+      <ProjectItem
+        data={{
+          name: "Lambton College Long-term Care Website",
+          imgSrc: moodleLTC,
+          href: "https://lambtonmoc.contactnorth.ca/",
+          techstack: ["PHP", "MySQL", "NodeJS", "Moodle"],
+          renderDescription: () => (
+            <Text
+              style={{
+                fontWeight: 300,
+              }}
+              tag={"body"}
+            >
+              The Lambton College LTC platform is a bilingual learning
+              management system that enables healthcare workers to register for
+              and complete micro-credential courses required for long-term care
+              certification. The platform supports over 40 courses in English
+              and French, streamlining enrolment, training delivery, and
+              certification for learners preparing to work in regulated care
+              settings.
+              <BoldAnchor
+                target="_blank"
+                href="https://www.lambtoncollege.ca/news/article/2026/02/04/lambton-college-adopts-care-passport-to-prepare-students-for-long-term-care-careers"
+              >
+                View article here
+              </BoldAnchor>
+            </Text>
+          ),
+        }}
+      />
       <ProjectItem
         data={{
           name: "Treehouse Community Website",

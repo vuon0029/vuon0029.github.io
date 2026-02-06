@@ -121,7 +121,7 @@ function App() {
   // Scroll to a section when a button is clicked
   const scrollToSection = (
     ref: React.RefObject<HTMLDivElement>,
-    id: string
+    id: string,
   ) => {
     if (ref.current) {
       ref.current.scrollIntoView({
@@ -143,7 +143,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.6 } // Trigger when 60% of the section is visible
+      { threshold: 0.6 }, // Trigger when 60% of the section is visible
     );
 
     // Observe each section
@@ -187,15 +187,7 @@ function App() {
                 }}
                 tag={"header"}
               >
-                Mobile Application Developer
-              </Text>
-              <Text
-                style={{
-                  fontWeight: 300,
-                }}
-                tag={"header"}
-              >
-                Front End Developer
+                Full Stack Developer
               </Text>
             </div>
           </HeaderSection>

@@ -61,13 +61,20 @@ const SummarySection: React.FC<{
       <MobileText>About</MobileText>
       <Content>
         <Text style={{ fontWeight: 300 }} tag={"header"}>
-          I’m a software developer with a passion for transforming beautifully
-          crafted designs into interactive, intuitive, and responsive user
+          I’m a Full Stack Developer with over four years of experience building
+          reliable, user-centered web and mobile applications, with a focus on
+          translating well-crafted designs into intuitive and responsive
           interfaces.
         </Text>
         <Text style={{ fontWeight: 300 }} tag={"header"}>
-          Over the past three years, I’ve had the pleasure to work with
-          innovative start-ups like{" "}
+          I’ve worked across startups and production environments, including{" "}
+          <BoldAnchor
+            target="_blank"
+            href="https://www.lambtoncollege.ca/news/article/2026/02/04/lambton-college-adopts-care-passport-to-prepare-students-for-long-term-care-careers"
+          >
+            Lambton College
+          </BoldAnchor>
+          ,{" "}
           <BoldAnchor
             target="_blank"
             href="https://beta.treehousecommunity.ca/"
@@ -85,13 +92,26 @@ const SummarySection: React.FC<{
           <BoldAnchor target="_blank" href="https://www.poptikr.com/">
             POPTikR
           </BoldAnchor>
-          , where I contributed to developing scalable, secure, and
-          user-friendly web and mobile applications.
+          , contributing to scalable, secure systems ranging from LMS platforms
+          and backend services to mobile applications and admin dashboards.
         </Text>
+
         <Text style={{ fontWeight: 300 }} tag={"header"}>
-          In my free time, I love exploring my creativity through learning new
-          musical instruments and making music, while also staying active with
-          climbing and working out.
+          Outside of work, I enjoy spending time{" "}
+          <BoldAnchor
+            target="_blank"
+            href="https://on.soundcloud.com/SnoVXb2lvOxetaKqea"
+          >
+            making music
+          </BoldAnchor>{" "}
+          and learning new instruments, and I keep myself active through
+          climbing and{" "}
+          <BoldAnchor
+            target="_blank"
+            href="https://www.instagram.com/kiet.sleefs/"
+          >
+            strength training!
+          </BoldAnchor>
         </Text>
       </Content>
     </SummaryContainer>
