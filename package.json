@@ -8,7 +8,7 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist --cname kiettuanvuong.dev"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@splinetool/react-spline": "^4.0.0",
